@@ -29,11 +29,7 @@ class DE_Static_Site_Analytics {
         // Add GTM code to front-end
         add_action('wp_head', array($this, 'add_gtm_head'), 1);
         add_action('wp_body_open', array($this, 'add_gtm_body'), 1);
-        
-        // Fallback for themes that don't support wp_body_open
-        if (!function_exists('wp_body_open')) {
-            add_action('wp_footer', array($this, 'add_gtm_body_fallback'), 1);
-        }
+        add_action('wp_footer', array($this, 'add_gtm_body_fallback'), 1);
     }
     
     /**
